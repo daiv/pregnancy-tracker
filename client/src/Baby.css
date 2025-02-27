@@ -1,0 +1,23 @@
+img {
+  width: 100%;
+  height: auto;
+}
+
+.week-button-pannel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.week-button-pannel p {
+  grid-column: span 3;
+  justify-self: center;
+}
+
+.week-button-pannel button {
+  padding: 25px;
+}
+
+.baby-container {
+  align-self: center;
+  height: fit-content;
+}

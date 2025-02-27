@@ -10,7 +10,8 @@ function App() {
   return (
     <div className='app-container'>
       <Info week={week} />
-      
+      <Baby id="baby" week={week} setWeek={setWeek} currentWeek={currentWeek} />
+      <Form />
 
     </div>
   );
