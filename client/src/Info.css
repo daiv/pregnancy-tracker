@@ -1,0 +1,7 @@
+.info-container {
+  display: flex;
+}
+
+.info-container>*:first-child {
+  padding: 1em;
+}
