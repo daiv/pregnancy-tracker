@@ -8,7 +8,7 @@ export default function Baby({ week, setWeek, currentWeek }) {
   }
   return (
     <div className="baby-container">
-      <img src={`/public/baby/${week}.png`} />
+      <img src={`/baby/${week}.png`} />
       <div className="week-button-pannel">
         <p>week={week}</p>
         <button id="prev" onClick={handleClick}>prev</button>
