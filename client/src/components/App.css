@@ -1,0 +1,10 @@
+.app-container {
+  display: flex;
+}
+
+.app-container>* {
+  height: 100vh;
+  flex: 1;
+  /* border: solid 3px black; */
+  padding: 5px;
+}
