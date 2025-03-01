@@ -1,9 +1,24 @@
+const { getLpd, setLpd } = require('../model/model')
 module.exports = {
 
-  getLPD: async (req, res) => {
-    res.json({ lpd: '2024-11-06T00:00:00.000Z' });
+  getLPD: async (_, res) => {
+    try {
+      res.status(201).json(await getLpd());
+    } catch (error) {
+      res.status(500).send('internal server error');
+    }
   },
+
   setLPD: async (req, res) => {
-    res.send('not implemented yet');
+
+    if (!req.body.lpd) res.status(400).send('Missing lpd');
+
+    try {
+      res.status(201).json(await setLpd(req.body));
+    } catch (error) {
+      res.status(500).send('server error');
+    }
+
+
   }
 }
