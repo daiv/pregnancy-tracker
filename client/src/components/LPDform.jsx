@@ -1,12 +1,17 @@
-export default function LPDform({ setlpd }) {
+import { useState } from "react";
+
+export default function LPDform({ postDates }) {
+  const [date, setDate] = useState('');
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(date);
+    if (date) postDates(date);
+  }
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <p>Set your last period date LPD</p>
-      <input type="date" onChange={e => {
-        const dateString = new Date(e.target.value).toISOString();
-        console.log(dateString);
-        setlpd(dateString);
-      }} />
-    </div>
+      <input type="date" onChange={e => setDate(new Date(e.target.value).toISOString())} />
+      <button type="submit">send</button>
+    </form>
   );
 }
