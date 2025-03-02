@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './EventForm.css';
 
-export default function EventForm() {
+export default function EventForm({ createEvent }) {
 
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
@@ -11,13 +11,16 @@ export default function EventForm() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log({ title, date, description, place });
+    if (title && date && description) {
+      createEvent({ title, date, description, place });
+      resetFields();
+    } else alert('title, date and description are required');
   }
-  function handleClick() {
+  function resetFields() {
     setTitle('');
     setDate('');
     setDescription('');
     setPlace('');
-
   }
   return (
     <form className="event-form-container" onSubmit={handleSubmit}>
@@ -33,7 +36,7 @@ export default function EventForm() {
       <textarea id='description' placeholder='description' value={description} onChange={e => setDescription(e.target.value)} />
       <h3>Place</h3>
       <input id='place' placeholder='place' value={place} onChange={e => setPlace(e.target.value)} />
-      <input type='reset' value='Reset' onClick={handleClick} />
+      <input type='reset' value='Reset' onClick={resetFields} />
       <button type='submit'>Submit</button>
 
     </form>

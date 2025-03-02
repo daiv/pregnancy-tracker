@@ -1,10 +1,12 @@
 import EventForm from "./EventForm";
-
-export default function Events() {
+import EventList from "./EventList";
+import './Events.css';
+export default function Events({ eventList, createEvent }) {
 
   return (
     <div className="events-container">
-      <EventForm />
+      <EventForm createEvent={createEvent} />
+      <EventList eventList={eventList} />
     </div>
   );
 
