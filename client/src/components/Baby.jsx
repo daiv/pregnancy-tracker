@@ -14,7 +14,7 @@ export default function Baby({ lpd, dueDate, week, day, setWeek, currentWeek }) 
       <p>Expected due date: {dueDate.toLocaleString().split(' ')[0].replace(',', '')}</p>
       <img src={`/baby/${week}.png`} />
       <div className="week-button-pannel">
-        <p>week={week} + {day ? day : 0}</p>
+        <p>week={week} + {day ? day : 0} days</p>
         <button id="prev" onClick={handleClick}>prev</button>
         <button id="curr" onClick={() => { setWeek(currentWeek) }}>current</button>
         <button id="next" onClick={handleClick}>next</button>
@@ -22,6 +22,5 @@ export default function Baby({ lpd, dueDate, week, day, setWeek, currentWeek }) 
     </div>
 
   );
-
 
 }
