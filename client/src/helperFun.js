@@ -26,9 +26,10 @@ export default {
     const dueDate = new Date(lpd);
     dueDate.setDate(lastPeriod.getDate() + 7 * 40);
     const today = new Date();
-    let weeks = (today - lastPeriod) / (1000 * 60 * 60 * 24 * 7);
-    const days = Math.floor(weeks % 7) + 1;
-    weeks = Math.floor(weeks);
+    let days = (today - lastPeriod) / (1000 * 60 * 60 * 24);
+    const weeks = Math.floor((days / 7));
+    days = Math.floor(days % 7);
+
 
     return { days, weeks, dueDate };
   },
@@ -65,6 +66,14 @@ export default {
       try {
         const response = await fetchFactory(URL + 'event', event);
         return response;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    deleteEvent: async (id) => {
+      try {
+        const response = await fetch(`${URL}event/${id}`, { method: "DELETE" }).then(resp => resp.json()).then(data => console.log(data));
+
       } catch (error) {
         console.log(error);
       }
