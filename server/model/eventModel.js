@@ -30,8 +30,11 @@ module.exports = {
   writeEvent: async (eventObj) => {
 
     const newLpd = new Event(eventObj);
-
     return await newLpd.save();
 
+  },
+  removeEvent: async (id) => {
+    const deletedEvent = await Event.findByIdAndDelete(id);
+    return deletedEvent;
   }
 }
