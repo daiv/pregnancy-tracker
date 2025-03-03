@@ -1,4 +1,4 @@
-const { findEvents, writeEvent } = require('../model/eventModel');
+const { findEvents, writeEvent, removeEvent } = require('../model/eventModel');
 
 module.exports = {
 
@@ -24,5 +24,16 @@ module.exports = {
     } catch (error) {
       return res.status(500).json({ message: 'server error' });
     }
+  },
+  deleteEvent: async (req, res) => {
+    const id = req.params.id;
+    if (id) {
+      try {
+        res.status(200).json(await removeEvent(id));
+      } catch (error) {
+        res.status(500).json('server error');
+      }
+    }
   }
+
 }

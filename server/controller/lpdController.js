@@ -1,4 +1,4 @@
-const { getLpd, setLpd } = require('../model/model')
+const { getLpd, setLpd } = require('../model/lpdModel')
 module.exports = {
 
   getLPD: async (_, res) => {

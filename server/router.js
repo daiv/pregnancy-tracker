@@ -1,6 +1,6 @@
 const express = require('express');
 const { getLPD, setLPD } = require('./controller/lpdController');
-const { getEvents, setEvent } = require('./controller/eventController');
+const { getEvents, setEvent, deleteEvent } = require('./controller/eventController');
 
 const router = express.Router();
 
@@ -13,5 +13,6 @@ router.post('/lpd', setLPD);
 router.get('/event', getEvents);
 router.post('/event', setEvent);
 
+router.delete('/event/:id', deleteEvent);
 
 module.exports = router;
