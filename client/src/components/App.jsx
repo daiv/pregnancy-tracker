@@ -23,7 +23,8 @@ function App() {
       }
     });
     func.http.getEvents().then(events => {
-      if (events) setEventList(events);
+      console.log(events);
+      if (events) setEventList(events.sort((a, b) => new Date(a.date) - new Date(b.date)));
     });
 
   }, []);
@@ -41,14 +42,18 @@ function App() {
   }
   function createEvent(event) {
     func.http.setEvent(event).then(newEvent => {
-      if (newEvent) setEventList([...eventList, newEvent]);
+      if (newEvent) setEventList([...eventList, newEvent].sort((a, b) => new Date(a.date) - new Date(b.date)));
     });
+  }
+  function removeEvent(event) {
+    func.http.deleteEvent(event._id);
+    setEventList(eventList.filter(el => el._id !== event._id));
   }
   return (
     <div className='app-container'>
       <Info week={week} />
       <Baby id="baby" lpd={lpd} dueDate={dueDate} week={week} day={day} setWeek={setWeek} currentWeek={currentWeek} />
-      {lpd ? <Events eventList={eventList} createEvent={createEvent} /> : <LPDform postDates={postDates} />}
+      {lpd ? <Events eventList={eventList} createEvent={createEvent} removeEvent={removeEvent} /> : <LPDform postDates={postDates} />}
     </div>
   );
 }
