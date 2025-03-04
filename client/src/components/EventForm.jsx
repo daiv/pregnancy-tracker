@@ -10,12 +10,13 @@ export default function EventForm({ createEvent }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log({ title, date, description, place });
+    const newDate = new Date(date);
+    console.log({ title, newDate, description, place });
     if (title && date && description) {
-      console.log(typeof date);
-      if (new Date(date) < Date.now()) alert('can not add a past event');
+      console.log(typeof newDate);
+      if (newDate < Date.now()) alert('can not add a past event');
       else {
-        createEvent({ title, date, description, place });
+        createEvent({ title, date: newDate, description, place });
         resetFields();
       }
     } else alert('title, date and description are required');
@@ -25,16 +26,16 @@ export default function EventForm({ createEvent }) {
     setDate('');
     setDescription('');
     setPlace('');
-    document.getElementById = "eventForm".reset();
   }
   return (
     <form id="eventForm" className="event-form-container" onSubmit={handleSubmit}>
       <label>Title</label>
       <input id='title' placeholder='title' value={title} onChange={e => setTitle(e.target.value)} />
       <label>Date</label>
-      <input id='date' type='date' onChange={e => {
-        const dateString = new Date(e.target.value).toISOString();
-        setDate(dateString);
+      <input id='date' type='date' value={date} onChange={e => {
+        /* const dateString = new Date(e.target.value).toISOString();
+        setDate(dateString); */
+        setDate(e.target.value);
       }} />
       <label>Description</label>
       <textarea id='description' placeholder='description' value={description} onChange={e => setDescription(e.target.value)} />

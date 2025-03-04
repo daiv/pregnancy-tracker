@@ -23,7 +23,7 @@ function App() {
       }
     });
     func.http.getEvents().then(events => {
-      console.log(events);
+     
       if (events) setEventList(events
         .filter(event => new Date(event.date) >= Date.now())
         .sort((a, b) => new Date(a.date) - new Date(b.date)));
@@ -33,8 +33,8 @@ function App() {
   function setDates(lpd) {
     const { days, weeks, dueDate } = func.getImportantDates(lpd);
     setlpd(lpd);
-    setCurrentWeek(weeks);
-    setWeek(weeks);
+    setCurrentWeek(weeks > 41 ? 41 : weeks);
+    setWeek((weeks > 41 ? 41 : weeks));
     setDay(days);
     setdueDate(dueDate);
   }
@@ -53,12 +53,8 @@ function App() {
   }
   return (
     <div className='app-container'>
-      <div className='baby-and-info-container'>
-
-        <Baby id="baby" lpd={lpd} dueDate={dueDate} week={week} day={day} setWeek={setWeek} currentWeek={currentWeek} postDates={postDates} />
-
-        <Info week={week} />
-      </div>
+      <Info week={week} />
+      <Baby id="baby" lpd={lpd} dueDate={dueDate} week={week} day={day} setWeek={setWeek} currentWeek={currentWeek} postDates={postDates} />
       <Events eventList={eventList} createEvent={createEvent} removeEvent={removeEvent} />
 
     </div>

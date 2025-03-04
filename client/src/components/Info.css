@@ -1,0 +1,9 @@
+.info-container>div {
+  margin-top: 20vh;
+  padding: 3%;
+  width: 20vw;
+}
+
+.info-container div h3 {
+  margin-bottom: 10px;
+}
