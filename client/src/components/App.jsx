@@ -2,9 +2,9 @@ import './App.css'
 import { useEffect, useState } from 'react';
 import Info from './Info';
 import Baby from './Baby';
-import LPDform from './LPDform';
 import Events from './Events';
 import func from '../helperFun';
+
 
 function App() {
 
@@ -24,7 +24,9 @@ function App() {
     });
     func.http.getEvents().then(events => {
       console.log(events);
-      if (events) setEventList(events.sort((a, b) => new Date(a.date) - new Date(b.date)));
+      if (events) setEventList(events
+        .filter(event => new Date(event.date) >= Date.now())
+        .sort((a, b) => new Date(a.date) - new Date(b.date)));
     });
 
   }, []);
@@ -51,9 +53,14 @@ function App() {
   }
   return (
     <div className='app-container'>
-      <Info week={week} />
-      <Baby id="baby" lpd={lpd} dueDate={dueDate} week={week} day={day} setWeek={setWeek} currentWeek={currentWeek} />
-      {lpd ? <Events eventList={eventList} createEvent={createEvent} removeEvent={removeEvent} /> : <LPDform postDates={postDates} />}
+      <div className='baby-and-info-container'>
+
+        <Baby id="baby" lpd={lpd} dueDate={dueDate} week={week} day={day} setWeek={setWeek} currentWeek={currentWeek} postDates={postDates} />
+
+        <Info week={week} />
+      </div>
+      <Events eventList={eventList} createEvent={createEvent} removeEvent={removeEvent} />
+
     </div>
   );
 }

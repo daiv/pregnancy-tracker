@@ -12,8 +12,12 @@ export default function EventForm({ createEvent }) {
     event.preventDefault();
     console.log({ title, date, description, place });
     if (title && date && description) {
-      createEvent({ title, date, description, place });
-      resetFields();
+      console.log(typeof date);
+      if (new Date(date) < Date.now()) alert('can not add a past event');
+      else {
+        createEvent({ title, date, description, place });
+        resetFields();
+      }
     } else alert('title, date and description are required');
   }
   function resetFields() {
@@ -21,23 +25,26 @@ export default function EventForm({ createEvent }) {
     setDate('');
     setDescription('');
     setPlace('');
+    document.getElementById = "eventForm".reset();
   }
   return (
-    <form className="event-form-container" onSubmit={handleSubmit}>
-
-      <h3>Title</h3>
+    <form id="eventForm" className="event-form-container" onSubmit={handleSubmit}>
+      <label>Title</label>
       <input id='title' placeholder='title' value={title} onChange={e => setTitle(e.target.value)} />
-      <h3>Date</h3>
+      <label>Date</label>
       <input id='date' type='date' onChange={e => {
         const dateString = new Date(e.target.value).toISOString();
         setDate(dateString);
       }} />
-      <h3>Description</h3>
+      <label>Description</label>
       <textarea id='description' placeholder='description' value={description} onChange={e => setDescription(e.target.value)} />
-      <h3>Place</h3>
+      <label>Place</label>
       <input id='place' placeholder='place' value={place} onChange={e => setPlace(e.target.value)} />
-      <input type='reset' value='Reset' onClick={resetFields} />
-      <button type='submit'>Submit</button>
+      <div className='hor-buttons'>
+        <button id='reset' type='reset' value='Reset' onClick={resetFields}>Reset</button>
+        <button type='submit'>Submit</button>
+
+      </div>
 
     </form>
   );
