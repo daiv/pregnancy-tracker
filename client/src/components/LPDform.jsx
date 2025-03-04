@@ -4,8 +4,12 @@ export default function LPDform({ postDates }) {
   const [date, setDate] = useState('');
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(date);
-    if (date) postDates(date);
+    console.log(typeof date);
+    if (date) {
+      if (new Date(date) < Date.now()) {
+        postDates(date);
+      } else alert('hola');
+    }
   }
   return (
     <form onSubmit={handleSubmit}>

@@ -1,0 +1,9 @@
+.event-list-container {
+  overflow-y: auto;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  align-items: center;
+
+}

@@ -1,19 +1,39 @@
 .event-form-container {
+  flex: 1;
+  margin-top: 20px;
   border: solid 1px black;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  align-self: center;
   padding: 10px;
   margin-bottom: 50px;
+  border-radius: 5%;
+  min-width: 50%;
+  width: auto;
+  background-color: rgb(211, 211, 124);
 }
 
-h3 {
+.hor-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.hor-buttons button {
+  padding: 1vw;
+
+
+}
+
+input,
+label,
+textarea {
   width: 80%;
+  min-height: 30px;
+  padding-inline-start: 3px;
 }
 
 input,
 textarea {
   margin-bottom: 10px;
-  width: 80%;
 }
