@@ -2,11 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
   /*   border: 1px solid black; */
 }
 
 .app-container {
   display: flex;
+  background-color: rgb(117, 196, 159);
 }
 
 .events-container {
@@ -19,13 +21,7 @@
   flex-direction: column;
 }
 
-.baby-and-info-container {
-  min-width: 70%;
-  flex: 3;
+.events-container h2 {
   width: fit-content;
-  align-items: center;
-  
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
+  align-self: center;
 }
