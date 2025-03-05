@@ -9,7 +9,7 @@ import func from '../helperFun';
 function App() {
 
   const [week, setWeek] = useState(2);
-  const [currentWeek, setCurrentWeek] = useState(1);
+  const [currentWeek, setCurrentWeek] = useState(2);
   const [lpd, setlpd] = useState();
   const [day, setDay] = useState('');
   const [dueDate, setdueDate] = useState('');
