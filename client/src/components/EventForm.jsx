@@ -32,11 +32,7 @@ export default function EventForm({ createEvent }) {
       <label>Title</label>
       <input id='title' placeholder='title' value={title} onChange={e => setTitle(e.target.value)} />
       <label>Date</label>
-      <input id='date' type='date' value={date} onChange={e => {
-        /* const dateString = new Date(e.target.value).toISOString();
-        setDate(dateString); */
-        setDate(e.target.value);
-      }} />
+      <input id='date' type='date' value={date} onChange={e => { setDate(e.target.value); }} />
       <label>Description</label>
       <textarea id='description' placeholder='description' value={description} onChange={e => setDescription(e.target.value)} />
       <label>Place</label>
