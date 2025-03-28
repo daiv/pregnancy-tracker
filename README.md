@@ -26,16 +26,10 @@ now in the browser go to  http://localhost:5173/
 * Client: 
   * React 
   * Vite
+
 * Server:
   * Express
   * MongoDb
   * Mongoose
   * Nodemon
 
-
-
-
-  
-Project title, followed by a brief description (max 600 characters) and some screenshots (unless you built a library).
-Getting started, where you explain to someone who has never seen your project before how to install the required dependencies, set up the dev / production environment, and run it on their computer.
-Tech stack, highlighting the core technologies you used (e.g. framework, DB, and anything else that is interesting / relevant).
