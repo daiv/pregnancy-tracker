@@ -1,8 +1,8 @@
-const express = require('express');
-const { getLPD, setLPD } = require('./controller/lpdController');
-const { getEvents, setEvent, deleteEvent } = require('./controller/eventController');
+import { Router } from 'express';
+import { getLPD, setLPD } from './controller/lpdController.js';
+import { getEvents, setEvent, deleteEvent } from './controller/eventController.js';
 
-const router = express.Router();
+const router = Router();
 
 //LPD = last period date
 
@@ -15,4 +15,4 @@ router.post('/event', setEvent);
 
 router.delete('/event/:id', deleteEvent);
 
-module.exports = router;
+export default router;

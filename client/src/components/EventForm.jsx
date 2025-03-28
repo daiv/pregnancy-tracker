@@ -11,10 +11,10 @@ export default function EventForm({ createEvent }) {
   function handleSubmit(event) {
     event.preventDefault();
     const newDate = new Date(date);
-    console.log({ title, newDate, description, place });
     if (title && date && description) {
       console.log(typeof newDate);
-      if (newDate < Date.now()) alert('can not add a past event');
+
+      if (newDate.getDate() < new Date().getDate()) alert('can not add a past event');
       else {
         createEvent({ title, date: newDate, description, place });
         resetFields();

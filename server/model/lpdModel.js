@@ -1,4 +1,4 @@
-const mongoose = require('./index');
+import mongoose from './index.js';
 
 const lpdSchema = new mongoose.Schema({
   lpd: {
@@ -9,20 +9,19 @@ const lpdSchema = new mongoose.Schema({
 
 const Lpd = mongoose.model('lpd', lpdSchema);
 
-module.exports = {
-  getLpd: async () => {
-    const lpd = await Lpd.find();
-    return lpd;
-  },
-  setLpd: async (lpdObj) => {
+export async function getLpd() {
+  const lpd = await Lpd.find();
+  return lpd;
+}
 
-    const previous = await Lpd.find();
+export async function setLpd(lpdObj) {
 
-    if (previous.length !== 0) return await previous[0].updateOne(lpdObj);
+  const previous = await Lpd.find();
 
-    const newLpd = new Lpd(lpdObj);
+  if (previous.length !== 0) return await previous[0].updateOne(lpdObj);
 
-    return await newLpd.save();
+  const newLpd = new Lpd(lpdObj);
 
-  }
+  return await newLpd.save();
+
 }

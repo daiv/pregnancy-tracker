@@ -1,6 +1,7 @@
-const mongoose = require('./index');
+import { model, Schema } from "mongoose";
 
-const eventSchema = new mongoose.Schema({
+
+const eventSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -19,22 +20,19 @@ const eventSchema = new mongoose.Schema({
 
 });
 
-const Event = mongoose.model('events', eventSchema);
+const Event = model('events', eventSchema);
 
-module.exports = {
+export async function findEvents() {
+  const events = await Event.find();
+  return events;
+}
 
-  findEvents: async () => {
-    const events = await Event.find();
-    return events;
-  },
-  writeEvent: async (eventObj) => {
+export async function writeEvent(eventObj) {
+  const newLpd = new Event(eventObj);
+  return await newLpd.save();
+}
 
-    const newLpd = new Event(eventObj);
-    return await newLpd.save();
-
-  },
-  removeEvent: async (id) => {
-    const deletedEvent = await Event.findByIdAndDelete(id);
-    return deletedEvent;
-  }
+export async function removeEvent(id) {
+  const deletedEvent = await Event.findByIdAndDelete(id);
+  return deletedEvent;
 }
