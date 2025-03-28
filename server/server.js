@@ -1,8 +1,9 @@
-const express = require('express');
-const router = require('./router');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const mongoose = require('./model/index');
+import cors from 'cors';
+import express from 'express';
+import router from './router.js';
+import bodyParser from 'body-parser';
+import mongoose from './model/index.js';
+
 
 const app = express();
 const port = 3000;

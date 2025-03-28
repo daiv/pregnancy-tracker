@@ -4,12 +4,16 @@ export default function LPDform({ postDates }) {
   const [date, setDate] = useState('');
   function handleSubmit(event) {
     event.preventDefault();
+    const lpDate = new Date(date);
+    const minDate = new Date();
+    minDate.setDate(minDate.getDate() - 7 * 41);
     if (date) {
-      if (new Date(date) < Date.now()) {
+      if (lpDate < Date.now() && lpDate > minDate) {
         postDates(date);
-      } else alert('last period can not set the future');
+      } else alert('last period can not set the future or before 41 weeks');
     }
   }
+
   return (
 
     <form className="lpd-form-container" onSubmit={handleSubmit}>
