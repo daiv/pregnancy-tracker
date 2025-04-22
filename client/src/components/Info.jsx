@@ -6,11 +6,11 @@ export default function Info({ week }) {
     <div className='info-container'>
       <div>
         <h3>Baby: </h3>
-        <p>{mock[week].fetus}</p>
+        <p>{mock[week].bebe}</p>
       </div>
       <div>
         <h3>Mother: </h3>
-        <p>{mock[week].mother}</p>
+        <p>{mock[week].madre}</p>
       </div>
 
 

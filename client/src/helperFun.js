@@ -17,66 +17,72 @@ async function fetchFactory(url, body) {
   return lpd;
 }
 
-export default {
+export function getDueDate(lpd) {
+  const dueDate = new Date(lpd);
+  dueDate.setDate(dueDate.getDate() + 7 * 40);
+  return dueDate;
+}
 
-  getImportantDates: (lpd) => {
+export function getTotalDays(from, to) {
+  const days = (to - from) / (1000 * 60 * 60 * 24);
+  return Math.floor(days);
+}
 
-    const lastPeriod = new Date(lpd);
+function getImportantDates(lpd) {
 
-    const dueDate = new Date(lpd);
-    dueDate.setDate(lastPeriod.getDate() + 7 * 40);
-    const today = new Date();
-    let days = (today - lastPeriod) / (1000 * 60 * 60 * 24);
-    const weeks = Math.floor((days / 7));
-    days = Math.floor(days % 7);
+  const dueDate = getDueDate(lpd);
+  const lastPeriod = new Date(lpd);
 
+  const today = new Date();
+  const totalDays = getTotalDays(lastPeriod, today);
+  const weeks = Math.floor((totalDays / 7));
+  const days = Math.floor(totalDays % 7);
 
-    return { days, weeks, dueDate };
-  },
+  return { days, weeks, dueDate };
+}
 
-  http: {
-
-    getLpd: async () => {
-      try {
-        const lpd = await fetchFactory(URL + 'lpd');
-        return lpd;
-      } catch (error) {
-        return { lpd: undefined };
-      }
-    },
-
-    setLpd: async (lpd) => {
-      try {
-        const response = await fetchFactory(URL + 'lpd', lpd);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-
-    getEvents: async () => {
-      try {
-        const events = await fetchFactory(URL + 'event');
-        return events;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-
-    setEvent: async (event) => {
-      try {
-        const response = await fetchFactory(URL + 'event', event);
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    deleteEvent: async (id) => {
-      try {
-        const response = await fetch(`${URL}event/${id}`, { method: "DELETE" }).then(resp => resp.json()).then(data => console.log(data));
-
-      } catch (error) {
-        console.log(error);
-      }
-    }
+async function getLpd() {
+  try {
+    const lpd = await fetchFactory(URL + 'lpd');
+    return lpd;
+  } catch (error) {
+    return { lpd: undefined };
   }
-} 
+}
+
+async function setLpd(lpd) {
+  try {
+    const response = await fetchFactory(URL + 'lpd', lpd);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getEvents() {
+  try {
+    const events = await fetchFactory(URL + 'event');
+    return events;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function setEvent(event) {
+  try {
+    const response = await fetchFactory(URL + 'event', event);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function deleteEvent(id) {
+  try {
+    const response = await fetch(`${URL}event/${id}`, { method: "DELETE" }).then(resp => resp.json()).then(data => console.log(data));
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export default { getImportantDates, http: { getLpd, setLpd, getEvents, setEvent, deleteEvent } }
