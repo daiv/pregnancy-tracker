@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=dev nodemon ./server.js",
+    "dev": "NODE_ENV=dev nodemon ./server.js",
     "t": "NODE_ENV=test  jest ./controller/test.js"
   },
   "keywords": [],
