@@ -7,11 +7,11 @@ const lpdSchema = new mongoose.Schema({
   }
 });
 
+
 const Lpd = mongoose.model('lpd', lpdSchema);
 
 export async function getLpd() {
-  const lpd = await Lpd.find();
-  return lpd;
+  return await Lpd.find();
 }
 
 export async function setLpd(lpdObj) {

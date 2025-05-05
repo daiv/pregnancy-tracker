@@ -23,8 +23,7 @@ const eventSchema = new Schema({
 const Event = model('events', eventSchema);
 
 export async function findEvents() {
-  const events = await Event.find();
-  return events;
+  return await Event.find();
 }
 
 export async function writeEvent(eventObj) {
@@ -32,7 +31,10 @@ export async function writeEvent(eventObj) {
   return await newLpd.save();
 }
 
+export async function findEvent(id) {
+  return await Event.findById(id);
+}
+
 export async function removeEvent(id) {
-  const deletedEvent = await Event.findByIdAndDelete(id);
-  return deletedEvent;
+  return await Event.findByIdAndDelete(id);
 }
