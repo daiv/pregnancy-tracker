@@ -1,18 +1,21 @@
 import cors from 'cors';
 import express from 'express';
 import router from './router.js';
-import bodyParser from 'body-parser';
 import mongoose from './model/index.js';
 
-
-const app = express();
+const server = express();
 const port = 3000;
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use('/', router);
+server.use(cors());
+server.use(express.json());
+server.use('/', router);
 
-app.listen(port, () => {
-  mongoose.startConnection();
-  console.log(`listening on port ${port}`);
-});
+mongoose.startConnection()
+  .then(() => {
+    console.log('Connected to MongoDB');
+    server.listen(port, () => console.log(`listening on port ${port}`));
+  })
+  .catch((error) => {
+    console.error('Failed to connect to MongoDB', error.message);
+    process.exit(1);
+  });

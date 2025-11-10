@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=dev nodemon ./server.js",
-    "t": "NODE_ENV=test  jest ./controller/test.js"
+    "test": "NODE_ENV=test  jest ./controller/test.js"
   },
   "keywords": [],
   "author": "",
