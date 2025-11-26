@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import './LPDform.css';
 export default function LPDform({ postDates }) {
   const [date, setDate] = useState('');
   function handleSubmit(event) {

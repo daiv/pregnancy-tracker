@@ -1,9 +1,8 @@
-.info-container>div {
-  margin-top: 20vh;
-  padding: 3%;
-  width: 20vw;
-}
-
-.info-container div h3 {
-  margin-bottom: 10px;
+.week-cards-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 200px;
+  padding: 0 10px 0 0;
 }

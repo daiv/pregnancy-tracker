@@ -1,0 +1,30 @@
+.events-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  height: 100%;
+}
+
+.event-form-wrapper {
+  background-color: #fcfcfc;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  ;
+}
+
+.next-events-title {
+  color: #a34e48;
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.event-list-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  min-height: 0;
+}

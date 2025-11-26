@@ -1,56 +1,93 @@
 .baby-container {
-  margin-top: 1%;
   display: flex;
+  flex: 2;
   flex-direction: column;
-  align-items: center;
-  min-width: 50vw;
+  gap: 20px;
+  padding: 0 10px 0 0;
 }
 
-.dates-container {
+.main-title {
+  color: #a34e48;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #e0918c;
+  letter-spacing: 1px;
+}
+
+.date-display-wrapper {
   display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  width: 100%;
+  align-items: center;
+  flex-direction: column;
+
 }
 
-img {
-  height: auto;
+.lpd-form-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #555555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.calculated-dates-row {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  color: #555555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.image-and-nav-wrapper {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
   width: 100%;
   border-radius: 10px;
-  max-width: 50vw;
-  border: 1px solid black;
 }
 
-.week-button-pannel {
-  margin-top: 1%;
-  max-width: 50vw;
-  display: flex;
-  justify-self: center;
+.baby-image {
+  max-width: 100%;
   width: 100%;
-  justify-content: space-around;
-
+  height: auto;
+  display: block;
 }
 
-.lpd-form-container {
+.nav-buttons-bar {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 5px;
-  
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 0 10px;
 }
 
-.lpd-form-container>*:first-child {
-  height: 60%;
+.nav-buttons-bar button {
+  background-color: #e0918c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  flex: 1;
+  margin-right: 3px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
 }
 
-.lpd-form-container>* {
-  height: 40%;
-}
-
-.hor-views>* {
-  height: 100%;
-}
-
-.week-button-pannel>* {
-  padding: 1%;
-  flex: 1
+.nav-buttons-bar button:hover {
+  background-color: #a34e48;
 }

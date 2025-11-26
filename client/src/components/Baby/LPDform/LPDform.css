@@ -1,0 +1,56 @@
+.lpd-form-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.lpd-form-container label {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 2;
+}
+
+.hor-views {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.hor-views input[type="date"] {
+  border: 1px solid #e0918c;
+  border-radius: 6px;
+  background-color: white;
+  vertical-align: top;
+  padding: 8px 10px;
+  height: 35px;
+  box-sizing: border-box;
+  color: #333333;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.hor-views input[type="date"]:focus {
+  outline: none;
+  border-color: #a34e48;
+  box-shadow: 0 0 0 3px rgba(163, 78, 72, 0.3);
+}
+
+.hor-views button[type="submit"] {
+  background-color: #e0918c;
+  color: white;
+  border: none;
+  margin-bottom: 10px;
+  padding: 8px 15px;
+  height: 35px;
+  vertical-align: top;
+  line-height: 1;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
+}
+
+.hor-views button[type="submit"]:hover {
+  background-color: #a34e48;
+}

@@ -1,9 +1,13 @@
+.next-events-title {
+  margin-bottom: 15px;
+}
+
 .event-list-container {
-  overflow-y: auto;
-  flex: 3;
   display: flex;
   flex-direction: column;
-  height: 40%;
-  align-items: center;
-
+  gap: 15px;
+  padding: 10px;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
 }

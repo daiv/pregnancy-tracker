@@ -29,6 +29,7 @@ export default function EventForm({ createEvent }) {
   }
   return (
     <form id="eventForm" className="event-form-container" onSubmit={handleSubmit}>
+      <h2>Create new event</h2>
       <label>Title</label>
       <input id='title' placeholder='title' value={title} onChange={e => setTitle(e.target.value)} />
       <label>Date</label>
