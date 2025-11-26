@@ -1,5 +1,5 @@
-import EventForm from "./EventForm";
-import EventList from "./EventList";
+import EventForm from "./EventForm/EventForm";
+import EventList from "./EventList/EventList";
 export default function Events({ eventList, createEvent, removeEvent }) {
 
   return (

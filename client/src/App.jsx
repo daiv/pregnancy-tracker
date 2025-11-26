@@ -1,9 +1,8 @@
-import './App.css'
 import { useEffect, useState } from 'react';
-import Info from './Info';
-import Baby from './Baby';
-import Events from './Events';
-import func from '../helperFun';
+import WeekCards from './components/WeekCards/WeekCards.jsx';
+import Baby from './components/Baby/Baby.jsx';
+import Events from './components/Events/Events.jsx';
+import func from './helperFun.js';
 
 
 function App() {
@@ -23,7 +22,7 @@ function App() {
       }
     });
     func.http.getEvents().then(events => {
-     
+
       if (events) setEventList(events
         .filter(event => new Date(event.date) >= Date.now())
         .sort((a, b) => new Date(a.date) - new Date(b.date)));
@@ -53,7 +52,7 @@ function App() {
   }
   return (
     <div className='app-container'>
-      <Info week={week} />
+      <WeekCards week={week} />
       <Baby id="baby" lpd={lpd} dueDate={dueDate} week={week} day={day} setWeek={setWeek} currentWeek={currentWeek} postDates={postDates} />
       <Events eventList={eventList} createEvent={createEvent} removeEvent={removeEvent} />
 

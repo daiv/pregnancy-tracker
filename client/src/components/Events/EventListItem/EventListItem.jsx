@@ -1,4 +1,4 @@
-import './EventItem.css';
+import './EventListItem.css';
 export default function EventItem({ event, removeEvent }) {
 
   return (
